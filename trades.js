@@ -169,8 +169,13 @@ app.get('/', function (req, res){
 	//console.log(pairs[p] + ': ' + poloDiff);
 	if (count > 0 && (poloDiff > 1.01 || poloDiff < 0.99)){
 		msg+=(prices[pairs[p].split('_')[1] + pairs[p].split('_')[0]]);
-		msg+='<br>'+ (count + ' count');
-		msg+='<br>' + (prices[pairs[p].split('_')[1] + pairs[p].split('_')[0]]).toString();
+		msg+='<br>'+ (count + ' count<br>');
+for (var ex in prices[pairs[p].split('_')[1] + pairs[p].split('_')[0]]){
+		msg+=console.log(ex) +' ';
+		tot+=parseFloat(prices[pairs[p].split('_')[1] + pairs[p].split('_')[0]][ex]);
+		count++;
+	}
+	
 	msg+='<br>'+(pairs[p].split('_')[1] + pairs[p].split('_')[0] + ' avg ' + avg);
 	msg+=('<br>polo rate: ' + prices[pairs[p].split('_')[1] + pairs[p].split('_')[0]]['poloniex']);
 	msg+=('<br>poloDiff: ' + poloDiff);
