@@ -171,7 +171,7 @@ app.get('/', function (req, res){
 		msg+=(prices[pairs[p].split('_')[1] + pairs[p].split('_')[0]]);
 		msg+='<br>'+ (count + ' count<br>');
 for (var ex in prices[pairs[p].split('_')[1] + pairs[p].split('_')[0]]){
-		msg+=console.log(ex) +' ';
+		msg+=console.log(ex) +': ' + prices[pairs[p].split('_')[1] + pairs[p].split('_')[0]][ex];
 		tot+=parseFloat(prices[pairs[p].split('_')[1] + pairs[p].split('_')[0]][ex]);
 		count++;
 	}
