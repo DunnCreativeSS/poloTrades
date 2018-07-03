@@ -137,8 +137,16 @@ poloniex.on('message', (channelName, data, seq) => {
 				  prices[channelName.split('_')[1] + channelName.split('_')[0]] = []
 			  }
 			 // console.log( prices[channelName]);
-			 // prices[channelName.split('_')[1] + channelName.split('_')[0]]['poloniex'] = data[d].data.rate;
-					
+	var tot = 0;
+	var count = 0;
+			prices[channelName.split('_')[1] + channelName.split('_')[0]]['poloniex'] = data[d].data.rate;
+					for (var ex in prices[channelName.split('_')[1] + channelName.split('_')[0]]){
+		console.log(ex);
+		tot+=parseFloat(prices[channelName.split('_')[1] + channelName.split('_')[0]][ex]);
+		count++;
+	}
+	var avg = (tot / (count)).toFixed(8);
+	//console.log(avg);
 		}
 	}
   }
