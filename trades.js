@@ -7,9 +7,6 @@ app.use(express.static(__dirname + '/public'));
 const BFX = require('bitfinex-api-node')
 const Poloniex = require('poloniex-api-node');
 let poloniex = new Poloniex();
-
-//var pairs = ["ETHBTC", 'BTCUSD']
-var pairs = []
 const bfx = new BFX({
   apiKey: 'MR0EZBtqMNn4WPYW4BzOlA0dLAelyGM5QY8LGfvhTX1',
   apiSecret: process.env.bitfinex,
@@ -21,6 +18,11 @@ const bfx = new BFX({
   }
 })
 
+const ws = bfx.ws()
+ws.open()
+//var pairs = ["USDT_BTC", 'USDT_ETH']
+
+var pairs = []
 var Binance = require("node-binance-api");
 const binance = new Binance().options({
   APIKEY: '0zJfmWUiPqtxXWqwh7NQB68q0oJfvh99KOAGmENrnuuZf5aA6PBOgPAEcxATn3AX',
@@ -37,14 +39,24 @@ ppdo(pairs, 0);
 
 function ppdo(pairs, i){
 	setTimeout(function(){
-publicclinedo(pairs[i]);
+		if (pairs[i] != undefined){
+			var ko = pairs[i].split('_')[1]+pairs[i].split('_')[0];
+		if (ko.slice(-4) == "USDT"){
+			publicclinedo('USD' + pairs[i].substr(4, pairs[i].length));
+	console.log('hitbtc ' +'USD' + pairs[i].substr(4, pairs[i].length));
+  		
+		}else{
+			publicclinedo(pairs[i]);
+		}
+		}
+
 if (i < pairs.length){
 	i++;
 }else {
 	i = 0;
 }
 	ppdo(pairs, i + 1);
-}, 100);
+}, 1000);
 }
 function publicclinedo(ko){
 	if (ko != undefined){
@@ -62,7 +74,7 @@ function publicclinedo(ko){
 			if (prices[ko] == undefined){
 				  prices[ko] = []
 			  }
-			 // console.log(data[t]);
+			  //console.log(data[t]);
 			  if (data[t].code != 2001){
 				 // console.log(data[t]);
 			  prices[ko]['hitbtc'] = data[t].price;
@@ -73,7 +85,6 @@ function publicclinedo(ko){
 })
 	}
 }
-const ws = bfx.ws()
 
 ws.on('error', (err) => {})
 ws.on('open', () => {
@@ -83,7 +94,13 @@ ws.on('open', () => {
 		var arr = pairs[p].split('_');
 		var pair = arr[1] + arr[0]
 		console.log('subs ' + pair);
-  ws.subscribeTrades(pair)
+		if (pair.slice(-4) == "USDT"){
+	ws.subscribeTrades(pair.substr(0, pair.length - 1))
+	console.log('ws '+ pair.substr(0, pair.length - 1));
+  		
+		}else{
+			ws.subscribeTrades(pair);
+		}
   wsonsubscribe(pair);
 	}
 	}
@@ -92,11 +109,9 @@ function wsonsubscribe(k){
 	setTimeout(function(){
 	console.log('bfx bin: ' + k);
 ws.onTrades({ pair: k }, (trades) => {
-	//console.log(trades);
 	if (prices[k] == undefined){
 				  prices[k] = []
 			  }
-			//  console.log(trades);
 			  prices[k]['bitfinex'] = trades[0][3];
 			 // console.log( prices[k]);
   //console.log(`bitfinex: ${JSON.stringify(trades)}`)
@@ -115,7 +130,6 @@ binance.websockets.trades(k, (trades) => {
 }
 
 
-ws.open()
 
 for (var p in pairs){
 poloniex.subscribe(pairs[p]);
