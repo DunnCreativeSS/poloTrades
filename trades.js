@@ -28,7 +28,7 @@ const binance = new Binance().options({
   useServerTime: true, // If you get timestamp errors, synchronize to server time at startup
   test: true // If you want to use sandbox mode where orders are simulated
 });
-var HitBTC = require("hitbtc-node-js");
+var HitBTC = require("./index.js");
 let publicClient = new HitBTC()
 
 var hitBtcTrades = []

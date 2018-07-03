@@ -1,10 +1,62 @@
 {
+  "_from": "hitbtc-node-js",
+  "_id": "hitbtc-node-js@0.0.1",
+  "_inBundle": false,
+  "_integrity": "sha512-IC8mBjwTlKqEuI4tc3tBh4sRDdwHc2WDWhkMOd2oCEn604ulEVlY37Yv1z1L4i18dUQJEReiia3DAwvfNLrDZQ==",
+  "_location": "/hitbtc-node-js",
+  "_phantomChildren": {
+    "async": "2.6.1",
+    "chalk": "1.1.3",
+    "combined-stream": "1.0.6",
+    "commander": "2.16.0",
+    "core-util-is": "1.0.2",
+    "extend": "3.0.1",
+    "forever-agent": "0.6.1",
+    "hawk": "3.1.3",
+    "inherits": "2.0.3",
+    "is-my-json-valid": "2.17.2",
+    "is-typedarray": "1.0.0",
+    "isarray": "1.0.0",
+    "isstream": "0.1.2",
+    "json-stringify-safe": "5.0.1",
+    "jsprim": "1.4.1",
+    "mime-types": "2.1.18",
+    "oauth-sign": "0.8.2",
+    "pinkie-promise": "2.0.1",
+    "sshpk": "1.14.2",
+    "stringstream": "0.0.6",
+    "util-deprecate": "1.0.2"
+  },
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "hitbtc-node-js",
+    "name": "hitbtc-node-js",
+    "escapedName": "hitbtc-node-js",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/hitbtc-node-js/-/hitbtc-node-js-0.0.1.tgz",
+  "_shasum": "49e9485ba960a52f05dd2d7492154a8bc8b0494b",
+  "_spec": "hitbtc-node-js",
+  "_where": "C:\\jare\\bfxfibbmonster",
   "author": {
-    "name": "Jarett Dunn",
-    "email": "jarettrsdunn@gmail.com"
+    "name": "Austin Borden"
+  },
+  "bugs": {
+    "url": "https://github.com/austinborden/hitbtc-js/issues"
   },
   "bundleDependencies": false,
   "dependencies": {
+    "request": "~2.67.0",
+    "underscore": "~1.8.3",
+    "verror": "~1.6.0",
+	
     "@sendgrid/mail": "^6.3.1",
     "bitfinex-api-node": "^2.0.0-beta.1",
     "body-parser": "^1.18.3",
@@ -23,19 +75,22 @@
     "serve-favicon": "*",
     "trendyways": "^0.4.2"
   },
-  "scripts": {
-    "start": "node trades.js"
-  },
   "deprecated": false,
-  "description": "Engine for Polo automation",
-  "engines": {
-    "node": ">=0.6"
+  "description": "Node.js API wrapper to the HitBTC bitcoin exchange",
+  "homepage": "https://github.com/austinborden/hitbtc-js#readme",
+  "keywords": [
+    "hitbtc",
+    "api",
+    "exchange",
+    "cryptocurrency",
+    "bitcoin"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "hitbtc-node-js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/austinborden/hitbtc-js.git"
   },
-  "name": "polofibbmonster",
-  "version": "1.0.4",
-  "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-stage-2": "^6.24.1"
-  }
+  "version": "0.0.1"
 }
