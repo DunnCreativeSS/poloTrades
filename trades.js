@@ -154,6 +154,7 @@ app.get('/', function (req, res){
 		count++;
 	}
 	var avg = (tot / (count)).toFixed(8);
+	if (prices[pairs[p].split('_')[1] + pairs[p].split('_')[0]] != undefined){
 	if (prices[pairs[p].split('_')[1] + pairs[p].split('_')[0]]['poloniex'] != undefined){
 	var poloDiff = parseFloat(prices[pairs[p].split('_')[1] + pairs[p].split('_')[0]]['poloniex']) / avg;
 	//console.log(pairs[p] + ': ' + poloDiff);
@@ -164,6 +165,7 @@ app.get('/', function (req, res){
 	msg+=('<br>polo rate: ' + prices[pairs[p].split('_')[1] + pairs[p].split('_')[0]]['poloniex']);
 	msg+=('<br>poloDiff: ' + poloDiff);
 		msg+=('<br><br>');
+	}
 	}
 	}
 	}
