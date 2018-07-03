@@ -145,6 +145,7 @@ poloniex.on('message', (channelName, data, seq) => {
 });
 }
 app.get('/', function (req, res){
+	var msg = "";
 	for (var p in pairs){
 	var tot = 0;
 	var count = 0;
