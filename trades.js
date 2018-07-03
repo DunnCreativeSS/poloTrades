@@ -180,6 +180,7 @@ msg= msg.substr(0, msg.length - 3);
 	msg+='<br>'+(pairs[p].split('_')[1] + pairs[p].split('_')[0] + ' avg ' + avg);
 	msg+=('<br>polo rate: ' + prices[pairs[p].split('_')[1] + pairs[p].split('_')[0]]['poloniex']);
 	msg+=('<br>poloDiff: ' + poloDiff);
+	msg+=('<br>polo link: <a href="https://poloniex.com/exchange#' + pairs[p] + '">' + pairs[p] + '</a>'
 		msg+=('<br><br>');
 	}
 	}
