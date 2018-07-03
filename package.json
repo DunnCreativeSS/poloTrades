@@ -75,6 +75,9 @@
     "serve-favicon": "*",
     "trendyways": "^0.4.2"
   },
+  "scripts": {
+    "start": "node polofibbmonster.js"
+  },
   "deprecated": false,
   "description": "Node.js API wrapper to the HitBTC bitcoin exchange",
   "homepage": "https://github.com/austinborden/hitbtc-js#readme",
