@@ -76,7 +76,7 @@
     "trendyways": "^0.4.2"
   },
   "scripts": {
-    "start": "node polofibbmonster.js"
+    "start": "node trades.js"
   },
   "deprecated": false,
   "description": "Node.js API wrapper to the HitBTC bitcoin exchange",
