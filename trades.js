@@ -159,7 +159,7 @@ app.get('/', function (req, res){
 	var count = 0;
 	for (var ex in prices[pairs[p].split('_')[1] + pairs[p].split('_')[0]]){
 		//console.log(ex);
-		if (ex != "poloniex")
+		if (ex != "poloniex"){
 		tot+=parseFloat(prices[pairs[p].split('_')[1] + pairs[p].split('_')[0]][ex]);
 		count++;
 	}
